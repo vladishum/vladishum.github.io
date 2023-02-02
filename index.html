@@ -8,14 +8,15 @@
     </head>
 
     <!--Body-->
-    <body>
+    <body class="Background">
         
         <!--Navbar-->
         <div class="Navbar">
             <a class="active" href="#Home">Home</a>
+            <a href="#Slideshow">Slideshow</a>
             <a href="#About">About</a>    
             <a href="#GitHub">GitHub</a>
-            <a href="#Contact">Contact</a>
+            <a onclick="openForm()" ondbclick="closeForm()" class="contact">Contact</a>
         </div>
 
         <!--Breaks inserted to add space between navbar and the first heading-->
@@ -49,7 +50,51 @@
                 </p>
             </strong>
         </div>
+        <!-- Slideshow section-->
+        <div id="Slideshow"> 
+            <div id="Slideshow_Background">
+                <div id="Slideshow_Container">
+                     <!-- Slide 1 of 5 -->
+                     <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="./images/kee baba.bmp" alt="Picture of yourself">
+                        <div class="text">I'm available to assist you on your project!</div>
+                    </div>
+                    <!-- Slide 2 of 5 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="./images/HTML_CSS_and_JavaScript.jpeg" alt="HTML, CSS, and JS logos"> 
+                        <div class="text">I am a full-stack software developer,<br> trained in:<br>HTML, CSS, JavaScript,</div>
+                    </div>
+                    <!-- Slide 3 of 5 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="./images/C_Sharp_and_Dot_NET.png" alt="C# logo">
+                        <div class="text">C#, .NET Framework, ASP.NET, MVC, </div>
+                    </div>
+                    <!-- Slide 4 of 5 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="./images/SQL_and_Database.jpg" alt="SQL logo"> 
+                        <div class="text">back end development, databases and SQL.</div>
+                    </div>
+                    <!-- Slide 5 of 5 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="./images/kee baba.bmp" alt="Replace with a picture of your choosing"> 
+                        <div class="text"><a class="white-text contact" onclick="openForm()">Contact me now!</a></div> 
+                    </div>
+                    <!-- Previous and next buttons -->
+                    <a class="Previous" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="Next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <br> <!-- Adds a space between the slideshow images and the dots -->
 
+                <!-- Slideshow dots (these are another way for users to navigate through the slideshow) -->
+                <div style="text-align: center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span> 
+                    <span class="dot" onclick="currentSlide(4)"></span> 
+                    <span class="dot" onclick="currentSlide(5)"></span> 
+                </div>
+            </div>
+        </div>
         <!--About sectipn-->
         <div class="Row" id="About">
             <!--Left column-->
@@ -65,7 +110,7 @@
                     <br>
                     <br>I am a graduate of <a href="https://www.pitman-training.com/" target="_blank">PITMAN TRAINING UK</a>’s Web Developer program, and trained in the following web and software languages: HTML, CSS, JavaScript, C#, SQL, C, C++, Java and other. 
                     <br>
-                    <br>I am a developer who would love to work with you on your project. <a href="#Contact">Contact</a> me below!
+                    <br>I am a developer who would love to work with you on your project. Contact me!
                 </p>
             </div>
         </div>
@@ -88,23 +133,21 @@
         </div>
 
         <!--Contact sectipn-->
-        <div class="Row" id="Contact">
-            <!--Contact image, left column-->
-            <div class="Column_2 Column_tall">
-                <img src="./images/kee baba.bmp" alt="Contact image">
-            </div>
+        <div id="Contact">
+            <button onclick="openForm()" class="Pop_Up_Button">CONTACT</button>
             <!--Contact form, right column-->
-            <div class="Column_1 Column_tall">
-                <h1>Contact</h1>
-                <!--This specifies where and how to send the form data; we are leaving it blank-->
-                <form action="https://formspree.io/f/mgeqblbo" method="POST">
-                <label>Name:</label>
-                    <input type="text" placeholder="Please enter your name here">
-                <label>Email:</label>
-                    <input type="text" id="Email" name="Email" placeholder="Please enter your email here">
-                <label>Message</label>
-                    <input type="text" id="Message" name="Message" placeholder="Please write your message here">
-                    <input type="submit" value="SUBMIT">
+            <div class="form-popup" id="myForm">           
+                <form action="https://formspree.io/f/mgeqblbo" method="POST" class="form-container">
+                    <h1>Contact</h1>
+                    <label for="name"><b>Name</b></label>
+                    <input type="text" placeholder="Type your name here" name="name" required>
+                    <label for="email"><b>Email</b></label>		
+                    <input type="text" placeholder="Type your email address here" name="email" required>
+                    <label for="message"><b>Message</b></label>
+                    <input type="text" placeholder="Type your message here" name="message">
+   
+                    <button type="submit" class="btn">SUBMIT</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
                 </form>
             </div>
         </div>
@@ -116,6 +159,7 @@
                 <br>
             </p>
         </footer>
+        <script src="./js/portfolio.js"></script>
     </body>
    
 </html>
